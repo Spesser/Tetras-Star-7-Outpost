@@ -29,6 +29,11 @@
 	var/dress_gloves = null
 	var/dress_extra = null
 
+/decl/hierarchy/mil_uniform/sundowner
+	name = "Head of Security outfit"
+	hierarchy_type = /decl/hierarchy/mil_uniform/sundowner
+	branch = /datum/mil_branch/sundowner
+/*
 /decl/hierarchy/mil_uniform/ec
 	name = "Master EC outfit"
 	hierarchy_type = /decl/hierarchy/mil_uniform/ec
@@ -118,3 +123,4 @@ decl/hierarchy/mil_uniform/civilian
 	dress_shoes = /obj/item/clothing/shoes/dress
 	dress_extra = list(/obj/item/clothing/accessory/wcoat)
 
+*/
