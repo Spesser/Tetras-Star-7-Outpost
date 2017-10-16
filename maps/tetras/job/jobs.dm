@@ -1,5 +1,5 @@
 
-/datum/map/torch
+/datum/map/tetras
 	species_to_job_whitelist = list(
 		/datum/species/nabber = list(/datum/job/ai, /datum/job/cyborg, /datum/job/janitor, /datum/job/scientist_assistant,
 			/datum/job/roboticist, /datum/job/cargo_contractor, /datum/job/chef, /datum/job/engineer_contractor, /datum/job/doctor_contractor),
@@ -32,7 +32,7 @@
 						)
 
 
-/datum/map/torch/setup_map()
+/datum/map/tetras/setup_map()
 	..()
 	for(var/job_type in GLOB.using_map.allowed_jobs)
 		var/datum/job/job = decls_repository.get_decl(job_type)
