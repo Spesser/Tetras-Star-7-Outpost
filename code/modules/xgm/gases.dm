@@ -157,3 +157,10 @@
 
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.020	// kg/mol
+
+/decl/xgm_gas/lithiumnitride
+	id = "lithiumnitride"
+	name = "Lithium Nitride"
+
+	specific_heat = 15	// J/(mol*K)
+	molar_mass = 0.034	// kg/mol

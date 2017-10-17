@@ -4,12 +4,22 @@
 
 #define O2STANDARD 0.21 // Percentage.
 #define N2STANDARD 0.79
+#define LI3NTETRAS 0.17
+#define N2TETRAS 0.30
+#define ARTETRAS 0.11
+#define O2TETRAS 0.13
+#define METETRAS 0.9
 
 #define MOLES_PHORON_VISIBLE 0.7 // Moles in a standard cell after which phoron is visible.
 #define MOLES_O2STANDARD     (MOLES_CELLSTANDARD * O2STANDARD) // O2 standard value (21%)
 #define MOLES_N2STANDARD     (MOLES_CELLSTANDARD * N2STANDARD) // N2 standard value (79%)
 #define MOLES_O2ATMOS (MOLES_O2STANDARD*50)
 #define MOLES_N2ATMOS (MOLES_N2STANDARD*50)
+#define MOLES_LI3NTETRAS (MOLES_CELLSTANDARD * LI3NTETRAS) //Li3N standard value (17%)
+#define MOLES_N2TETRAS	 (MOLES_CELLSTANDARD * N2TETRAS) //N2 standard value (30%)
+#define MOLES_ARTETRAS	 (MOLES_CELLSTANDARD * ARTETRAS) //Ar standard value (11%)
+#define MOLES_O2TETRAS	 (MOLES_CELLSTANDARD * O2TETRAS) //O2 standard value (13%)
+#define MOLES_METETRAS	 (MOLES_CELLSTANDARD * METETRAS) //Me standard value (09%)
 
 // These are for when a mob breathes poisonous air.
 #define MIN_TOXIN_DAMAGE 1

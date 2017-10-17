@@ -49,6 +49,8 @@
 			filtered_out = list("carbon_dioxide")
 		if(4)//removing N2O
 			filtered_out = list("sleeping_agent")
+		if(5)//removing Li3N
+			filtered_out = list("lithiumnitride")
 
 	air1.volume = ATMOS_DEFAULT_VOLUME_FILTER
 	air2.volume = ATMOS_DEFAULT_VOLUME_FILTER
@@ -163,6 +165,8 @@
 			current_filter_type = "Carbon Dioxide"
 		if(4)
 			current_filter_type = "Nitrous Oxide"
+		if(5)
+			current_filter_type = "Lithium Nitride"
 		if(-1)
 			current_filter_type = "Nothing"
 		else
@@ -177,6 +181,7 @@
 			<A href='?src=\ref[src];filterset=2'>Nitrogen</A><BR>
 			<A href='?src=\ref[src];filterset=3'>Carbon Dioxide</A><BR>
 			<A href='?src=\ref[src];filterset=4'>Nitrous Oxide</A><BR>
+			<A href='?src=\ref[src];filterset=4'>Lithium Nitride</A><BR>
 			<A href='?src=\ref[src];filterset=-1'>Nothing</A><BR>
 			<HR>
 			<B>Set Flow Rate Limit:</B>
@@ -208,6 +213,8 @@
 				filtered_out += "carbon_dioxide"
 			if(4)//removing N2O
 				filtered_out += "sleeping_agent"
+			if(5)//removing Li3N
+				filtered_out += "lithiumnitride"
 
 	if (href_list["temp"])
 		src.temp = null
