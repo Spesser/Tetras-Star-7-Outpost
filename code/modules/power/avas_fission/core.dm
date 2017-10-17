@@ -12,7 +12,7 @@
 	var/initial_temperature = 200
 	var/light_e = null
 	var/controls = null
-	var/control_rod_position = null
+	var/control_rod_position = 100
 	var/circular_system_quality = null
 	var/shielding_max_temp = null
 	var/turbine_quality = null
@@ -26,7 +26,9 @@
 	var/temperature_interchange = null
 	var/max_temperature = null
 	var/power_produced = null
-	var/active = null
+	var/fission = null
+	var/minwork = 0
+	var/maxwork = 100
 
 /obj/machinery/power/fission_reactor//attack_ai(mob/user)
 	attack_hand(user)
@@ -52,8 +54,10 @@
 			to_chat(user, "<span class='notice'>This \"[A]\" is depleted.</span>")
 			return
 
-/obj/machinery/power/fission_reactor/Process()
-	if(active)
+/obj/machinery/power/fission_reactor/Process(mob/user as mob)
+	if(reactor_open)
+		to_chat(user, "<span class='notice'>Reactor chamber opened. Close it before start.</span>")
+	if(fission && fuel_rods == 10)
 		max_temperature = core_max_temp + shielding_max_temp
 		temperature_interchange = circular_system_quality + turbine_quality
 		temperature += initial_temperature
@@ -79,7 +83,7 @@
 	data["controlRodPosition"] = control_rod_position
 	data["fuelRods"] = fuel_rods
 	data["divideCoefficient"] = divide_k
-	data["active"] = active ? 1 : 0
+	data["fission"] = fission ? 1 : 0
 
 
 
@@ -90,7 +94,7 @@
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "generator.tmpl", "Thermoelectric Generator", 450, 500)
+		ui = new(user, src, ui_key, "fission_reactor.tmpl", "Fission Reactor", 700, 700)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
 		// open the new ui window
@@ -103,10 +107,13 @@
 	if(..())
 		return 1
 
-	if(href_list["neutronInjection"])
-		active = !active
+	if(href_list["fission"])
+		fission = !fission
 		. = 1
-
+	if (href_list["rod_adj"])
+		var/diff = text2num(href_list["rod_adj"])
+		control_rod_position = Clamp(control_rod_position+diff, minwork, maxwork)
+		. = 1
 
 /obj/machinery/power/fission_reactor/attack_hand(mob/user)
 	ui_interact(user)

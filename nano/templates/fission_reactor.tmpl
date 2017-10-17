@@ -1,0 +1,84 @@
+<h3>Fission Reactor status</h3>
+<div class="item">
+	<div class="itemLabel">
+		Energy Output:
+	</div>
+	<div class="itemContent">
+		{{:data.totalOutput}} MW
+	</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Temperature:
+	</div>
+	<div class="itemContent">
+		{{:data.totalTemperature}} C
+	</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Maximal Temperature:
+	</div>
+	<div class="itemContent">
+		{{:data.maxTotalOutput}} C
+	</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Fuel Rods:
+	</div>
+	<div class="itemContent">
+		{{:data.fuelRods}}
+	</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Division Coefficient:
+	</div>
+	<div class="itemContent">
+		{{:data.divideCoefficient}}
+	</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Reaction Status:
+	</div>
+	<div class="itemContent">
+		{{:data.active}}
+	</div>
+</div>
+
+<h3>Power Regulator Status</h3>
+<div class="item">
+	<div class="itemLabel">
+		Volume Rate:
+	</div>
+	<div class="itemContent">
+		{{:helper.displayBar(data.rate, data.minrate, data.maxrate)}}
+		<div style="clear: both; padding-top: 4px;">
+			{{:helper.link('-', null, {'rod_adj' : -1000}, (data.rate > data.minrate) ? null : 'disabled')}}
+			{{:helper.link('-', null, {'rod_adj' : -100}, (data.rate > data.minrate) ? null : 'disabled')}}
+			{{:helper.link('-', null, {'rod_adj' : -10}, (data.rate > data.minrate) ? null : 'disabled')}}
+			{{:helper.link('-', null, {'rod_adj' : -1}, (data.rate > data.minrate) ? null : 'disabled')}}
+			<div style="float: left; width: 80px; text-align: center;">&nbsp;{{:data.rate}} L/s&nbsp;</div>
+			{{:helper.link('+', null, {'rod_adj' : 1}, (data.rate < data.maxrate) ? null : 'disabled')}}
+			{{:helper.link('+', null, {'rod_adj' : 10}, (data.rate < data.maxrate) ? null : 'disabled')}}
+			{{:helper.link('+', null, {'rod_adj' : 100}, (data.rate < data.maxrate) ? null : 'disabled')}}
+			{{:helper.link('+', null, {'rod_adj' : 1000}, (data.rate < data.maxrate) ? null : 'disabled')}}
+		</div>
+	</div>
+</div>
+
+<div class="item">
+	<div class="itemLabel">
+		Fission:
+	</div>
+	<div class="itemContent">
+		{{:helper.link('On', 'unlocked', {'power' : 1}, data.fission ? 'selected' : null)}} {{:helper.link('Off', 'locked', {'power' : 1}, data.fission ? null : 'selected')}}
+	</div>
+</div>
