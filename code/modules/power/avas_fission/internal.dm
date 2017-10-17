@@ -12,6 +12,7 @@
 	var/shielding_max_temperature = null
 	var/turbine_quality = null
 	var/fail_percentage = null
+	var/nuclear_divide_k = null
 
 /obj/item/fission_reactor/internal/control_rod
 	name = "nuclear reactor control rod"
@@ -27,6 +28,7 @@
 	icon_state = "fuel_rod"
 	fuel_quality = 1
 	fuel_life = 1
+	nuclear_divide_k = 1
 
 /obj/item/fission_reactor/internal/circular_system
 	name = "nuclear reactor circular system"
@@ -40,19 +42,18 @@
 	desc = "Shielding for the nuclear reactor. Contact admin or developer if you see this"
 	icon = 'icons/obj/machines/power/fission.dmi'
 	icon_state = "shielding"
-	shielding_quality = 1
-	shielding_max_temperature = 1
+	shielding_quality = 500
 
 /obj/item/fission_reactor/internal/turbine
 	name = "nuclear reactor turbine"
 	desc = "Turbine for the nuclear reactor. Contact admin or developer if you see this"
 	icon = 'icons/obj/machines/power/fission.dmi'
-	icon_state = "rod"
+	icon_state = "turbine"
 	turbine_quality = 1
 
 /obj/item/fission_reactor/internal/safety_system
 	name = "nuclear reactor safety_system"
 	desc = "Safety_system for the nuclear reactor. Contact admin or developer if you see this"
 	icon = 'icons/obj/machines/power/fission.dmi'
-	icon_state = "rod"
+	icon_state = "safety"
 	fail_percentage = 1
